@@ -2,6 +2,7 @@
   "name": "portfolio-start",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://macheteby.github.io/portfolio-/",
   "dependencies": {
     "@babel/core": "7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
@@ -66,7 +67,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "deploy": "gh-pages -d build",
+    "predeploy": "yarn run build"
   },
   "eslintConfig": {
     "extends": [
@@ -88,7 +91,8 @@
   },
   "devDependencies": {
     "@types/styled-components": "5.1.26",
-    "babel-plugin-styled-components": "2.0.7"
+    "babel-plugin-styled-components": "2.0.7",
+    "gh-pages": "^6.0.0"
   },
   "jest": {
     "roots": [

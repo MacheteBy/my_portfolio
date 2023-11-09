@@ -7,14 +7,12 @@ import { theme } from '../../../styles/Theme';
 import photo from '..//..//..//assets//images/Photo_2.png'
 import photo_after from '../../../assets/images/Photo_after.svg';
 import Photo_after_min from '../../../assets/images/Photo_after_min.svg';
-
+import background_about_square from '../../../assets/images/background_about_square.svg';
 
 
 export const AboutMe = () => {
     return (
-        <StyledSectionAboutMe>
-            <BackgroundImg></BackgroundImg>
-            <BackgroundImgPoints src={photo_after} alt="photo"/>
+        <StyledSectionAboutMe id={'aboutMe'}>
             <Container>
                 <SectionTitle afterWidth={"326px"}><span>about-me</span></SectionTitle>
                 <FlexWrapper>
@@ -41,7 +39,9 @@ export const AboutMe = () => {
 
 
 const StyledSectionAboutMe = styled.section`
-font-family: Fira Code;
+background-image: url(${photo_after}), url(${background_about_square});
+background-repeat: no-repeat;
+background-position: 101% 60%,0% 40%;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
@@ -56,32 +56,8 @@ overflow-x: hidden;
 @media ${theme.media.mobile} {
     padding-bottom: 20px;
 }
-
-
-`
-
-const BackgroundImg = styled.div`
-    position: absolute;
-    top: 142px;
-    left: -77px;
-    width: 155px;
-    height: 155px;
-    border: 1px solid ${theme.colors.font};
-
-    @media ${theme.media.smallDesctop} {
-        display: none;
-    }
-`
-
-const BackgroundImgPoints = styled.img`
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    bottom: 200px;
-    right: -22px;
-
-    @media ${theme.media.smallDesctop} {
-        display: none;
+@media ${theme.media.smallDesctop} {
+        background-image: none;
     }
 `
 
@@ -105,12 +81,12 @@ const PhotoWrapper = styled.div`
         top: 30px;
         z-index: 0;
         @media ${theme.media.tablet} {
-            left: 0px;
-            top: 45vh;
+            left: 24vh;
+            top: 10vh;
         }
         @media ${theme.media.mobile} {
-            left: 10vw;
-            top: 10vh;
+            left: 20vw;
+            top: 14vh;
         }
     }
     &::after {
@@ -120,16 +96,16 @@ const PhotoWrapper = styled.div`
         bottom: 28px;
         z-index: 2;
         @media ${theme.media.smallDesctop} {
-            right: 0px;
-            top: 0px;
+            right: 2vh;
+            top: 40vh;
         }
         @media ${theme.media.tablet} {
-            right: 10vw;
-            top: 80vh;
+            right: 22vw;
+            top: 44vh;
         }
         @media ${theme.media.mobile} {
-            right: 10vw;
-            top: 80vh;
+            right: 22vw;
+            top: 44vh;
         }
         
     }
@@ -178,7 +154,6 @@ const WrapperBefore = styled.div`
 `
 
 const Photo = styled.img`
-    /* height: 450px; */
     max-width: 300px;
     position: relative;
     z-index: 1;
@@ -194,7 +169,6 @@ const Photo = styled.img`
 
 const BtnContatMe = styled.button`
     border: 1px solid ${theme.colors.accent};
-    font-family: Fira Code;
     font-size: 16px;
     font-weight: 500;
     line-height: normal;

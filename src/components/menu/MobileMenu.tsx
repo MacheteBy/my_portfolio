@@ -1,26 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-scroll';
 import styled, { css } from 'styled-components';
 import { theme } from '../../styles/Theme';
 import { FlexWrapper } from '../FlexWrapper';
 
-type menyPropsType = {
-    menuItem: Array<string>
-}
+const items = [
+    {
+        title: "home",
+        href: "main"
+    },
+    {
+        title: "works",
+        href: "projects"
+    },
+    {
+        title: "about-me",
+        href: "aboutMe"
+    },
+    {
+        title: "contacts",
+        href: "contacts"
+    },
+    ]
 
-export const MobileMenu = (props: menyPropsType) => {
+export const MobileMenu = () => {
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
+    const onBurgerBtnClick = () => {setMenuIsOpen(!menuIsOpen)}
     return (
         <StyledMenu>
             <FlexWrapper gap={"30px"}>
-                <BurgerButton isOpen={false}>
+                <BurgerButton isOpen={menuIsOpen} onClick={ onBurgerBtnClick }>
                     <span></span>
                 </BurgerButton>
-                <MobileMenuWrapper isOpen={false}>
+                <MobileMenuWrapper isOpen={menuIsOpen} onClick={() => {setMenuIsOpen(false)} }>
                     <FlexWrapper direction='column'>
                         <ul>
-                            {props.menuItem.map((item: string, index: number) => {
+                            {items.map((item, index) => {
                                 return <li key={index}>
-                                    <a href="#">{item}</a>
-                                </li>
+                                <NavLink to={item.href} smooth={true}>{item.title}</NavLink>
+                            </li>
                             })}
                         </ul>
                         <form action="lang">
@@ -67,7 +85,6 @@ const MobileMenuWrapper = styled.div<{ isOpen: boolean }>`
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* justify-content: space-around; */
         gap: 30px;
     }
 
@@ -75,7 +92,6 @@ const MobileMenuWrapper = styled.div<{ isOpen: boolean }>`
         background-color: ${theme.colors.primaryBg};
         color: ${theme.colors.font};
         border: none;
-        font-family: 'Fira Code';
         font-weight: 600;
     }
 
@@ -120,4 +136,8 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
             `}
             }
     }
+`
+
+const NavLink = styled(Link)`
+    
 `

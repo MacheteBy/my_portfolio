@@ -24,7 +24,6 @@ export const Skill = (props: SkillPropsType) => {
 const StyledSkill = styled.div`
     border: 1px solid ${theme.colors.font};
     color: ${theme.colors.font};
-    font-family: Fira Code;
     font-size: 16px;
     font-weight: 400;
     line-height: normal;

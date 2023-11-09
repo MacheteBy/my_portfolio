@@ -8,28 +8,13 @@ import photo_before from '../../../assets/images/Phote_before.svg';
 import photo_after from '../../../assets/images/Photo_after.svg';
 import quotation_marks from '../../../assets/images/quotation_marks.svg';
 import { Icon } from '../../../components/icon/Icon';
+import background_main from '../../../assets/images/background_main.svg';
+import { AttentionSeeker, Fade } from "react-awesome-reveal";
 
 export const Main = () => {
     return (
-        <StyleMain>
-            <BackgroundImg></BackgroundImg>
-            <SocialList>
-                <SocialItem>
-                    <SocialLink href='#'>
-                        <Icon iconId={"GithubSvg"} />
-                    </SocialLink>
-                </SocialItem>
-                <SocialItem>
-                    <SocialLink href='#'>
-                        <Icon iconId={"DribbleSvg"} />
-                    </SocialLink>
-                </SocialItem>
-                <SocialItem>
-                    <SocialLink href='#'>
-                        <Icon iconId={"FigmaSvg"} />
-                    </SocialLink>
-                </SocialItem>
-            </SocialList>
+        <StyleMain id={'main'}>
+
             <Container>
                 <FlexWrapper align={"center"} direction={"column"}>
                     <FlexWrapper align={"center"} justify={"space-around"}>
@@ -56,14 +41,20 @@ export const Main = () => {
                         </FlexInfoWrapper>
 
                     </FlexWrapper>
-                    <CitationText>
-                        <p>
-                            With great power comes great electricity bill
-                        </p>
-                        <span>
-                            - Dr. Who
-                        </span>
-                    </CitationText>
+                    <AttentionSeeker>
+                        <Fade damping={0.1} delay={300} cascade={true}>
+                        <CitationText>
+                            <p>
+                                With great power comes great electricity bill
+                            </p>
+                            <span>
+                                - Dr. Who
+                            </span>
+                        </CitationText>
+                    </Fade>
+                    </AttentionSeeker>
+                    
+
                 </FlexWrapper>
             </Container>
         </StyleMain>
@@ -72,14 +63,19 @@ export const Main = () => {
 
 
 const StyleMain = styled.section`
-    /* min-height: 100vh; */
+    background-image: url(${background_main});
+    background-repeat: no-repeat;
+    background-position: 100% 82%;
     display: flex;
     position: relative;
     padding-top: 62px;
     padding-bottom: 74px;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     @media ${theme.media.mobile} {
         padding-bottom: 20px;
+    }
+    @media ${theme.media.smallDesctop} {
+        background-image: none;
     }
 `
 
@@ -92,55 +88,13 @@ const FlexInfoWrapper = styled.div`
 `
 
 
-const SocialList = styled.ul`
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: absolute;
-    top: 256px;
-    left: 17px;
-    &::before{
-        content: "";
-        background: ${theme.colors.font};
-        width: 1px;
-        height: 390px;
-        left: 14px;
-        top: -390px;
-        position: absolute;
-    }
 
-    @media ${theme.media.smallDesctop} {
-        display: none;
-    }
-`
-
-const SocialItem = styled.li`
-    
-`
-
-const SocialLink = styled.a`
-    
-`
-
-const BackgroundImg = styled.div`
-    position: absolute;
-    bottom: 140px;
-    right: -9px;
-    width: 91px;
-    height: 91px;
-    border: 1px solid ${theme.colors.font};
-
-    @media ${theme.media.smallDesctop} {
-        display: none;
-    }
-`
 
 const MainTitleWrapper = styled.div`
     
 `
 
 const MainTitle = styled.h1`
-    font-family: Fira Code;
     font-size: 32px;
     font-weight: 600;
     color: ${theme.colors.fontTitle};
@@ -150,7 +104,6 @@ const MainTitle = styled.h1`
 `
 
 const AboutMe = styled.h1`
-    font-family: Fira Code;
     font-size: 16px;
     font-weight: 400;
     line-height: 25px;
@@ -201,7 +154,6 @@ const Photo = styled.img`
 
 
 const SubtextPhoto = styled.p`
-    font-family: Fira Code;
     font-size: 16px;
     font-weight: 500;
     line-height: normal;
@@ -212,7 +164,6 @@ const SubtextPhoto = styled.p`
     padding: 8px 34px;
     max-width: 450px;
     span {
-        font-family: Fira Code;
         font-size: 16px;
         font-weight: 600;
         line-height: normal;
@@ -237,7 +188,6 @@ const SubtextPhoto = styled.p`
 
 const BtnContatMe = styled.button`
     border: 1px solid ${theme.colors.accent};
-    font-family: Fira Code;
     font-size: 16px;
     font-weight: 500;
     line-height: normal;
@@ -250,7 +200,6 @@ const CitationText = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    font-family: Fira Code;
     font-size: 24px;
     font-style: normal;
     line-height: normal;

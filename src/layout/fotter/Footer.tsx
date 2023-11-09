@@ -49,7 +49,6 @@ export const Footer = () => {
 
 const StyledFooter = styled.footer`
     background-color: ${theme.colors.primaryBg};
-    font-family: Fira Code;
     font-size: 16px;
     font-weight: 400;
     line-height: normal;

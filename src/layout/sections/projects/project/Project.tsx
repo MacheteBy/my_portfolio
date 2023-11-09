@@ -26,7 +26,6 @@ const StyleProject = styled.div`
     border: 1px solid ${theme.colors.font};
     max-width: 33%;
     height: 100%;
-    font-family: Fira Code;
     font-size: 16px;
     font-weight: 400;
     line-height: normal;

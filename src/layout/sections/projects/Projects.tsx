@@ -8,13 +8,13 @@ import ProjTwo from '../../../assets/images/proj_2.webp';
 import ProjThre from '../../../assets/images/proj_3.webp';
 import { Container } from '../../../components/Container';
 import { theme } from '../../../styles/Theme';
+import background_projects from '../../../assets/images/background_projects.svg'
 
 
 
 export const Projects = () => {
     return (
-        <StyledProjects>
-            <BackgroundImg></BackgroundImg>
+        <StyledProjects id={'projects'}>
             <Container>
                 <SectionTitle afterWidth={"510px"}><span>projects</span></SectionTitle>
                 <FlexWrapper justify={'space-between'}>
@@ -28,20 +28,14 @@ export const Projects = () => {
 };
 
 const StyledProjects = styled.section`
+background-image: url(${background_projects});
+background-repeat: no-repeat;
+background-position: 100% 50%;
 position: relative;
 padding-bottom: 48px;
 overflow-x: hidden;
-`
-
-const BackgroundImg = styled.div`
-    position: absolute;
-    bottom: 160px;
-    right: -87px;
-    width: 155px;
-    height: 155px;
-    border: 1px solid ${theme.colors.font};
-
-    @media ${theme.media.smallDesctop} {
-        display: none;
+@media ${theme.media.smallDesctop} {
+        background-image: none;
     }
 `
+

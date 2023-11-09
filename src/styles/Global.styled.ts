@@ -21,7 +21,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: ${theme.colors.font}
+  color: ${theme.colors.font};
+  font-family: Fira Code;
 }
 
 a {
@@ -35,6 +36,7 @@ ul {
 button {
     background-color: unset;
     border: none;
+    font-family: Fira Code;
 }
 
 section {

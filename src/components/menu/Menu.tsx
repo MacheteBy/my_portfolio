@@ -1,20 +1,37 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 import styled from 'styled-components';
 import { theme } from '../../styles/Theme';
 import { FlexWrapper } from '../FlexWrapper';
 
-type menyPropsType = {
-    menuItem: Array<string>
-}
 
-export const Menu = (props: menyPropsType) => {
+const items = [
+    {
+        title: "home",
+        href: "main"
+    },
+    {
+        title: "works",
+        href: "projects"
+    },
+    {
+        title: "about-me",
+        href: "aboutMe"
+    },
+    {
+        title: "contacts",
+        href: "contacts"
+    },
+    ]
+
+export const Menu = () => {
     return (
         <StyledMenu>
             <FlexWrapper gap={"30px"}>
                 <ul>
-                    {props.menuItem.map((item: string, index: number) => {
+                    {items.map((item, index) => {
                         return <li key={index}>
-                            <a href="#">{item}</a>
+                            <NavLink to={item.href} smooth={true}>{item.title}</NavLink>
                         </li>
                     })}
                 </ul>
@@ -42,7 +59,6 @@ const StyledMenu = styled.nav`
         background-color: ${theme.colors.primaryBg};
         color: ${theme.colors.font};
         border: none;
-        font-family: 'Fira Code';
         font-weight: 600;
     }
 
@@ -54,4 +70,8 @@ const StyledMenu = styled.nav`
     @media ${theme.media.tablet} {
         display: none;
     }
+`
+
+const NavLink = styled(Link)`
+    
 `

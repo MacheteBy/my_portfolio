@@ -9,8 +9,7 @@ import photo_after from '../../assets/images/Photo_after.svg';
 
 export const Contacts = () => {
     return (
-        <StyledContacts>
-            <BackgroundImgPoints src={photo_after} alt="photo" />
+        <StyledContacts id={'contacts'}>
             <Container>
                 <SectionTitle afterWidth={"125px"}><span>contacts</span></SectionTitle>
                 <FlexWrapper justify={'space-between'} padding={"46px 0"}>
@@ -37,7 +36,9 @@ export const Contacts = () => {
 
 
 const StyledContacts = styled.section`
-    font-family: Fira Code;
+    background-image: url(${photo_after});  
+    background-repeat: no-repeat;
+    background-position: -2% 24%;
     font-size: 16px;
     font-weight: 500;
     line-height: normal;
@@ -47,17 +48,8 @@ const StyledContacts = styled.section`
     @media ${theme.media.mobile} {
         padding-bottom: 20px;
     }
-`
-
-const BackgroundImgPoints = styled.img`
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 96px;
-    left: -50px;
-
     @media ${theme.media.smallDesctop} {
-        display: none;
+        background-image: none;
     }
 `
 

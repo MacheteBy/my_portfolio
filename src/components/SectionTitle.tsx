@@ -8,7 +8,6 @@ type SectionTitlePropsType = {
 export const SectionTitle = styled.h2<SectionTitlePropsType>`
     color: ${theme.colors.fontTitle};
     margin: 0;
-    font-family: Fira Code;
     font-size: 32px;
     font-weight: 500;
     line-height: normal;
